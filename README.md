@@ -1,41 +1,36 @@
 # matlab-juegos-ucrso
 
-# Instrucciones:
 
-*** Se debe tener instalado: ***
+#Se debe tener instalado: 
 
 Versión de Angular
 Versión de Angular-CLI
-Versión de Node
 Versión de Express
 Heroku CLI
 
-Los archivos de Angular se encuentran en la carpeta Public.
 Se recomienda utilizar Angular CLI para la creación de componentes con el fin de mantener un standard.
 
-*** Configuración inicial ***
-
-heroku git:remote -a matlab-juegos
+# Configuración inicial 
+Clonar el repositorio
+Iniciar sesión en heroku
+heroku git:remote -a matlab-juegos-ucrso
 
 Importante: debe tener acceso al repositorio de Heroku para hacer cambios en el host.
 
-*** Instalar paquetes ***
+# Instalar paquetes 
 
 npm install
 
-*** Inicializar página (de manera local) ***
+# Inicializar página (de manera local)
 
 npm start
 
-*** Subir cambios a host (Heroku) ***
+# Subir cambios a host (Heroku)
 
-En la carpeta public/matlab-juegos realizar un build de la aplicación con el comando: 
-ng build
+Se debe realizar un ng build en la carpeta raíz.
+Se realiza un push a master, una vez realizado, esperarse unos segundos y el servidor de heroku se actualiza de manera automática.
 
-
-
-
-
+#Información Adicional
 Autores:
 
   Josué Villagra Marín     josue.villagra@ucrso.info 
