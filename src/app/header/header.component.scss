@@ -1,0 +1,63 @@
+.header-top {
+    background: #fff;
+    .head-nav {
+        padding: 2em 0;
+        position: relative;
+        .logo {
+            text-align: center;
+            padding-bottom: 1em;     
+            .title {
+                color: #5bb2fc;
+                font-size: 3em;
+                font-weight: 400;
+                font-family: 'Fugaz One', cursive;
+                cursor: pointer;
+                span {
+                    color: #fec63f;
+                }
+            }
+        }
+
+        .top-menu{
+            display: flex;
+            justify-content: center;
+            ul {
+                margin: 0;
+                padding: 0;
+                .li-header {
+                    display: inline-block;
+                    margin: 0;
+                    color: #fff;
+                    float: left;
+                    vertical-align: top;
+                    display: inline-block;
+                    color: #fff;
+                    text-decoration: none;
+                    font-size: 1em;
+                    padding: 1.2em 4.38em 1em 4.3em;
+                    font-weight: 400;
+                    cursor: pointer;
+                }
+                .color1 {
+                    background: #5bb2fc;
+                }
+                .color2 {
+                    background: #ffa659;
+                    ul {
+                        background: #ffa659;
+                        li {
+                            color: #fff;
+                            padding: 2px;
+                            :hover {
+                                color: black;
+                            }
+                        }
+                    }
+                }
+                .color3 {
+                    background: #B881CF;
+                }
+            }
+        }
+    }
+}
