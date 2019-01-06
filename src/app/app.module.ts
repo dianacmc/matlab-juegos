@@ -9,6 +9,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { HanoitTowerComponent } from './hanoit-tower/hanoit-tower.component';
+import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -16,12 +18,14 @@ import { AboutUsComponent } from './about-us/about-us.component';
     FooterComponent,
     HeaderComponent,
     HomeComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    HanoitTowerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

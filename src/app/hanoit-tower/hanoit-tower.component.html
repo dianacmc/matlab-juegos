@@ -1,0 +1,48 @@
+<div class="hanoi">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 counter">
+        <h3> {{moves}} movimientos</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 tower1">
+        <div class="tower" (click)="move(tower1)">
+          <div *ngFor="let field of tower1" [class]="field.name">
+            <div class="field">
+              {{ field.value }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 tower2">
+        <div class="tower" (click)="move(tower2)">
+          <div *ngFor="let field of tower2" [class]="field.name">
+            <div class="field">
+              {{ field.value }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 tower3">
+        <div class="tower" (click)="move(tower3)">
+          <div *ngFor="let field of tower3" [class]="field.name">
+            <div class="field">
+              {{ field.value }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row restart">
+      <button type="button" class="btn btn-dark" (click)="initGame()">
+        <fa name="repeat" class="icon"></fa> Reiniciar
+      </button>
+    </div>
+  </div>
+</div>
+
+<button hidden id="alertBtn" [swal]="finishSwal">
+</button>
+<swal #finishSwal title="Felicidades!" text="Terminaste el juego en {{ moves }} movimientos" type="info" (confirm)="initGame()">
+</swal>
