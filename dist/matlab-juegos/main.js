@@ -23,6 +23,69 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./src/app/about-us/about-us.component.html":
+/*!**************************************************!*\
+  !*** ./src/app/about-us/about-us.component.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  about-us works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/about-us/about-us.component.scss":
+/*!**************************************************!*\
+  !*** ./src/app/about-us/about-us.component.scss ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Fib3V0LXVzL2Fib3V0LXVzLmNvbXBvbmVudC5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/about-us/about-us.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/about-us/about-us.component.ts ***!
+  \************************************************/
+/*! exports provided: AboutUsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutUsComponent", function() { return AboutUsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AboutUsComponent = /** @class */ (function () {
+    function AboutUsComponent() {
+    }
+    AboutUsComponent.prototype.ngOnInit = function () {
+    };
+    AboutUsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-about-us',
+            template: __webpack_require__(/*! ./about-us.component.html */ "./src/app/about-us/about-us.component.html"),
+            styles: [__webpack_require__(/*! ./about-us.component.scss */ "./src/app/about-us/about-us.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AboutUsComponent);
+    return AboutUsComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/app-routing.module.ts":
 /*!***************************************!*\
   !*** ./src/app/app-routing.module.ts ***!
@@ -35,6 +98,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _about_us_about_us_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./about-us/about-us.component */ "./src/app/about-us/about-us.component.ts");
+/* harmony import */ var _hanoit_tower_hanoit_tower_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./hanoit-tower/hanoit-tower.component */ "./src/app/hanoit-tower/hanoit-tower.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -43,7 +109,27 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 };
 
 
-var routes = [];
+
+
+
+var routes = [
+    {
+        path: 'home',
+        component: _home_home_component__WEBPACK_IMPORTED_MODULE_2__["HomeComponent"]
+    },
+    {
+        path: 'about-us',
+        component: _about_us_about_us_component__WEBPACK_IMPORTED_MODULE_3__["AboutUsComponent"]
+    },
+    {
+        path: 'hanoit-tower',
+        component: _hanoit_tower_hanoit_tower_component__WEBPACK_IMPORTED_MODULE_4__["HanoitTowerComponent"]
+    },
+    {
+        path: '**',
+        redirectTo: 'home'
+    }
+];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
     }
@@ -135,12 +221,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _footer_footer_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./footer/footer.component */ "./src/app/footer/footer.component.ts");
 /* harmony import */ var angular_font_awesome__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! angular-font-awesome */ "./node_modules/angular-font-awesome/dist/angular-font-awesome.es5.js");
 /* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _about_us_about_us_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./about-us/about-us.component */ "./src/app/about-us/about-us.component.ts");
+/* harmony import */ var _hanoit_tower_hanoit_tower_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./hanoit-tower/hanoit-tower.component */ "./src/app/hanoit-tower/hanoit-tower.component.ts");
+/* harmony import */ var _toverux_ngx_sweetalert2__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @toverux/ngx-sweetalert2 */ "./node_modules/@toverux/ngx-sweetalert2/esm5/toverux-ngx-sweetalert2.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
 
 
 
@@ -156,12 +250,16 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
                 _footer_footer_component__WEBPACK_IMPORTED_MODULE_4__["FooterComponent"],
-                _header_header_component__WEBPACK_IMPORTED_MODULE_6__["HeaderComponent"]
+                _header_header_component__WEBPACK_IMPORTED_MODULE_6__["HeaderComponent"],
+                _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"],
+                _about_us_about_us_component__WEBPACK_IMPORTED_MODULE_8__["AboutUsComponent"],
+                _hanoit_tower_hanoit_tower_component__WEBPACK_IMPORTED_MODULE_9__["HanoitTowerComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"],
-                angular_font_awesome__WEBPACK_IMPORTED_MODULE_5__["AngularFontAwesomeModule"]
+                angular_font_awesome__WEBPACK_IMPORTED_MODULE_5__["AngularFontAwesomeModule"],
+                _toverux_ngx_sweetalert2__WEBPACK_IMPORTED_MODULE_10__["SweetAlert2Module"].forRoot()
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
@@ -181,7 +279,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"footer\">\n  <div class=\"container\">\n    <div class=\"footer-grids\">\n      <div class=\"col-md-6 footer-text\">\n        <h3>Sobre Nosotros</h3>\n        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.\n          Et quis fuga aliquid omnis eum doloremque, aspernatur facilis ad voluptatibus\n          vero deserunt sequi eius obcaecati excepturi reiciendis sunt magnam corrupti hic.</p>\n        <a href=\"\" class=\"read\">Leer Más</a>\n      </div>\n      <div class=\"col-md-6 footer-info\">\n        <h3>Contacto</h3>\n        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.\n          Et quis fuga aliquid omnis eum doloremque, aspernatur facilis ad voluptatibus\n          vero deserunt sequi eius obcaecati excepturi reiciendis sunt magnam corrupti hic.</p>\n        <div class=\"contact-links\">\n          <a href=\"https://www.facebook.com/TCU.LABMATE/\">\n            <fa name=\"facebook-square\" class=\"icon\"></fa>\n          </a>\n          <fa name=\"envelope\" class=\"icon\"></fa>\n        </div>\n      </div>\n      <div class=\"clearfix\"></div>\n    </div>\n    <div class=\"copy\">\n      <p> © 2019. Propiedad del <a href=\"https://www.facebook.com/TCU.LABMATE/\"> Laboratorio de Matemática, UCRSO </a></p>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"footer\">\n  <div class=\"container\">\n    <div class=\"footer-grids\">\n      <div class=\"col-md-6 footer-text\">\n        <h3>Sobre Nosotros</h3>\n        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.\n          Et quis fuga aliquid omnis eum doloremque, aspernatur facilis ad voluptatibus\n          vero deserunt sequi eius obcaecati excepturi reiciendis sunt magnam corrupti hic.</p>\n        <a href=\"\" class=\"read\" routerLink=\"/about-us\">Leer Más</a>\n      </div>\n      <div class=\"col-md-6 footer-info\">\n        <h3>Contacto</h3>\n        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.\n          Et quis fuga aliquid omnis eum doloremque, aspernatur facilis ad voluptatibus\n          vero deserunt sequi eius obcaecati excepturi reiciendis sunt magnam corrupti hic.</p>\n        <div class=\"contact-links\">\n          <a href=\"https://www.facebook.com/TCU.LABMATE/\">\n            <fa name=\"facebook-square\" class=\"icon\"></fa>\n          </a>\n          <fa name=\"envelope\" class=\"icon\"></fa>\n        </div>\n      </div>\n      <div class=\"clearfix\"></div>\n    </div>\n    <div class=\"copy\">\n      <p> © 2019. Propiedad del <a href=\"https://www.facebook.com/TCU.LABMATE/\"> Laboratorio de Matemática, UCRSO </a></p>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -237,6 +335,144 @@ var FooterComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/hanoit-tower/hanoit-tower.component.html":
+/*!**********************************************************!*\
+  !*** ./src/app/hanoit-tower/hanoit-tower.component.html ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"hanoi\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-md-12 counter\">\n        <h3> {{moves}} movimientos</h3>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-md-4 tower1\">\n        <div class=\"tower\" (click)=\"move(tower1)\">\n          <div *ngFor=\"let field of tower1\" [class]=\"field.name\">\n            <div class=\"field\">\n              {{ field.value }}\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"col-md-4 tower2\">\n        <div class=\"tower\" (click)=\"move(tower2)\">\n          <div *ngFor=\"let field of tower2\" [class]=\"field.name\">\n            <div class=\"field\">\n              {{ field.value }}\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"col-md-4 tower3\">\n        <div class=\"tower\" (click)=\"move(tower3)\">\n          <div *ngFor=\"let field of tower3\" [class]=\"field.name\">\n            <div class=\"field\">\n              {{ field.value }}\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"row restart\">\n      <button type=\"button\" class=\"btn btn-dark\" (click)=\"initGame()\">\n        <fa name=\"repeat\" class=\"icon\"></fa> Reiniciar\n      </button>\n    </div>\n  </div>\n</div>\n\n<button hidden id=\"alertBtn\" [swal]=\"finishSwal\">\n</button>\n<swal #finishSwal title=\"Felicidades!\" text=\"Terminaste el juego en {{ moves }} movimientos\" type=\"info\" (confirm)=\"initGame()\">\n</swal>"
+
+/***/ }),
+
+/***/ "./src/app/hanoit-tower/hanoit-tower.component.scss":
+/*!**********************************************************!*\
+  !*** ./src/app/hanoit-tower/hanoit-tower.component.scss ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".hanoi {\n  padding-bottom: 50px; }\n  .hanoi .counter {\n    text-align: center;\n    padding-bottom: 40px; }\n  .hanoi .tower {\n    border-bottom: 3px ridge rgba(0, 0, 0, 0.92);\n    margin-bottom: 5px;\n    text-align: center;\n    cursor: pointer; }\n  .hanoi .tower .field {\n      color: white;\n      padding: 1.2em 4.38em 1em 4.3em; }\n  .hanoi .tower .first {\n      width: 50%;\n      background: #ff7a85;\n      border-radius: 25px;\n      display: inline-block; }\n  .hanoi .tower .second {\n      width: 60%;\n      background: #5bb2fc;\n      border-radius: 25px;\n      display: inline-block; }\n  .hanoi .tower .third {\n      width: 80%;\n      background: #B881CF;\n      border-radius: 25px;\n      display: inline-block; }\n  .hanoi .tower .fourth {\n      width: 100%;\n      background: #ffa659;\n      border-radius: 25px;\n      display: inline-block; }\n  .hanoi .restart {\n    padding-top: 30px;\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n  .hanoi .restart button {\n      height: 50px;\n      width: 300px;\n      color: #fff;\n      font-size: 20px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2pvc3VlL0RvY3VtZW50b3MvVENVL21hdGxhYi1qdWVnb3Mvc3JjL2FwcC9oYW5vaXQtdG93ZXIvaGFub2l0LXRvd2VyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0kscUJBQW9CLEVBcUR2QjtFQXRERDtJQUdRLG1CQUFrQjtJQUNsQixxQkFBb0IsRUFDdkI7RUFMTDtJQVFRLDZDQUE0QztJQUM1QyxtQkFBa0I7SUFDbEIsbUJBQWtCO0lBQ2xCLGdCQUFlLEVBNkJsQjtFQXhDTDtNQWFZLGFBQVk7TUFDWixnQ0FBK0IsRUFDbEM7RUFmVDtNQWlCWSxXQUFVO01BQ1Ysb0JBQW1CO01BQ25CLG9CQUFtQjtNQUNuQixzQkFBcUIsRUFDeEI7RUFyQlQ7TUF1QlksV0FBVTtNQUNWLG9CQUFtQjtNQUNuQixvQkFBbUI7TUFDbkIsc0JBQXFCLEVBQ3hCO0VBM0JUO01BNkJZLFdBQVU7TUFDVixvQkFBbUI7TUFDbkIsb0JBQW1CO01BQ25CLHNCQUFxQixFQUN4QjtFQWpDVDtNQW1DWSxZQUFXO01BQ1gsb0JBQW1CO01BQ25CLG9CQUFtQjtNQUNuQixzQkFBcUIsRUFDeEI7RUF2Q1Q7SUEwQ1Esa0JBQWlCO0lBQ2pCLGNBQWE7SUFDYixvQkFBbUI7SUFDbkIsd0JBQXVCLEVBTzFCO0VBcERMO01BK0NZLGFBQVk7TUFDWixhQUFZO01BQ1osWUFBVztNQUNYLGdCQUFlLEVBQ2xCIiwiZmlsZSI6InNyYy9hcHAvaGFub2l0LXRvd2VyL2hhbm9pdC10b3dlci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5oYW5vaXtcbiAgICBwYWRkaW5nLWJvdHRvbTogNTBweDtcbiAgICAuY291bnRlciB7XG4gICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICAgICAgcGFkZGluZy1ib3R0b206IDQwcHg7XG4gICAgfVxuXG4gICAgLnRvd2VyIHtcbiAgICAgICAgYm9yZGVyLWJvdHRvbTogM3B4IHJpZGdlIHJnYmEoMCwgMCwgMCwgMC45Mik7XG4gICAgICAgIG1hcmdpbi1ib3R0b206IDVweDtcbiAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgICAgIC5maWVsZCB7XG4gICAgICAgICAgICBjb2xvcjogd2hpdGU7XG4gICAgICAgICAgICBwYWRkaW5nOiAxLjJlbSA0LjM4ZW0gMWVtIDQuM2VtO1xuICAgICAgICB9XG4gICAgICAgIC5maXJzdHtcbiAgICAgICAgICAgIHdpZHRoOiA1MCU7XG4gICAgICAgICAgICBiYWNrZ3JvdW5kOiAjZmY3YTg1O1xuICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogMjVweDtcbiAgICAgICAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgICAgICAgfVxuICAgICAgICAuc2Vjb25ke1xuICAgICAgICAgICAgd2lkdGg6IDYwJTtcbiAgICAgICAgICAgIGJhY2tncm91bmQ6ICM1YmIyZmM7XG4gICAgICAgICAgICBib3JkZXItcmFkaXVzOiAyNXB4O1xuICAgICAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICAgICAgICB9XG4gICAgICAgIC50aGlyZHtcbiAgICAgICAgICAgIHdpZHRoOiA4MCU7XG4gICAgICAgICAgICBiYWNrZ3JvdW5kOiAjQjg4MUNGO1xuICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogMjVweDtcbiAgICAgICAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgICAgICAgfVxuICAgICAgICAuZm91cnRoe1xuICAgICAgICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICAgICAgICBiYWNrZ3JvdW5kOiAjZmZhNjU5O1xuICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogMjVweDtcbiAgICAgICAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgICAgICAgfVxuICAgIH1cbiAgICAucmVzdGFydCB7XG4gICAgICAgIHBhZGRpbmctdG9wOiAzMHB4O1xuICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgICAgYnV0dG9uIHtcbiAgICAgICAgICAgIGhlaWdodDogNTBweDtcbiAgICAgICAgICAgIHdpZHRoOiAzMDBweDtcbiAgICAgICAgICAgIGNvbG9yOiAjZmZmO1xuICAgICAgICAgICAgZm9udC1zaXplOiAyMHB4O1xuICAgICAgICB9XG4gICAgfVxuICAgIFxufSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/hanoit-tower/hanoit-tower.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/hanoit-tower/hanoit-tower.component.ts ***!
+  \********************************************************/
+/*! exports provided: HanoitTowerComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HanoitTowerComponent", function() { return HanoitTowerComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var HanoitTowerComponent = /** @class */ (function () {
+    function HanoitTowerComponent() {
+        this.moves = 0;
+        this.tower1 = [];
+        this.tower2 = [];
+        this.tower3 = [];
+        this.initGame();
+    }
+    HanoitTowerComponent.prototype.ngOnInit = function () {
+    };
+    HanoitTowerComponent.prototype.initGame = function () {
+        this.tower1 = [
+            { name: 'first', value: 1 },
+            { name: 'second', value: 2 },
+            { name: 'third', value: 3 },
+            { name: 'fourth', value: 4 }
+        ];
+        this.tower2 = [
+            { name: 'zero', value: 0 },
+            { name: 'zero', value: 0 },
+            { name: 'zero', value: 0 },
+            { name: 'zero', value: 0 }
+        ];
+        this.tower3 = [
+            { name: 'zero', value: 0 },
+            { name: 'zero', value: 0 },
+            { name: 'zero', value: 0 },
+            { name: 'zero', value: 0 }
+        ];
+        this.moves = 0;
+        this.toBeMoved = null;
+    };
+    HanoitTowerComponent.prototype.moveToAnotherTower = function (tower) {
+        for (var index = tower.length - 1; index >= 0; index--) {
+            if (tower[index].value == 0) {
+                if (!tower[index + 1]) {
+                    tower[index] = this.toBeMoved;
+                    this.toBeMoved = null;
+                    this.moves++;
+                    this.gameFinished();
+                    break;
+                }
+                else {
+                    if ((tower[index + 1].value != 0)
+                        && (tower[index + 1].value >
+                            this.toBeMoved.value)) {
+                        tower[index] = this.toBeMoved;
+                        this.toBeMoved = null;
+                        this.moves++;
+                        this.gameFinished();
+                        break;
+                    }
+                }
+            }
+        }
+    };
+    HanoitTowerComponent.prototype.selectToBeMoved = function (tower) {
+        for (var index = 0; index < tower.length; index++) {
+            if (tower[index].value != 0) {
+                this.toBeMoved = tower[index];
+                tower[index] = { name: 'zero', value: 0 };
+                break;
+            }
+        }
+    };
+    HanoitTowerComponent.prototype.move = function (tower) {
+        if (this.toBeMoved) {
+            this.moveToAnotherTower(tower);
+        }
+        else {
+            this.selectToBeMoved(tower);
+        }
+    };
+    HanoitTowerComponent.prototype.gameFinished = function () {
+        if (this.tower2[0].value != 0 || this.tower3[0].value != 0) {
+            console.log("Juego terminado");
+            document.getElementById('alertBtn').click();
+            //Poner sweet alert y que cuando se presione ok se reinicia el juego
+        }
+    };
+    HanoitTowerComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-hanoit-tower',
+            template: __webpack_require__(/*! ./hanoit-tower.component.html */ "./src/app/hanoit-tower/hanoit-tower.component.html"),
+            styles: [__webpack_require__(/*! ./hanoit-tower.component.scss */ "./src/app/hanoit-tower/hanoit-tower.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], HanoitTowerComponent);
+    return HanoitTowerComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/header/header.component.html":
 /*!**********************************************!*\
   !*** ./src/app/header/header.component.html ***!
@@ -244,7 +480,7 @@ var FooterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"header-top\">\n  <div class=\"container\">\n    <div class=\"head-nav\">\n      <div class=\"logo\">\n        <h1 class=\"title\">LabMat <span>Juegos</span></h1>\n      </div>\n      <div class=\"clearfix\"></div>\n      <div class=\"top-menu\">\n        <ul>\n          <li class=\"li-header color1\">Inicio</li>\n          <li class=\"li-header color2\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n             Juegos\n            <ul class=\"dropdown-menu\" role=\"menu\">\n              <li><p>Juego 1</p> </li>\n              <li><p>Juego 2</p></li>\n              <li><p>Juego 3</p></li>\n            </ul>\n          </li>\n\n          <li class=\"li-header color3\">Información</li>\n          <div class=\"clearfix\"></div>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"header-top\">\n  <div class=\"container\">\n    <div class=\"head-nav\">\n      <div class=\"logo\">\n        <h1 class=\"title\" routerLink=\"/home\">LabMat <span>Juegos</span></h1>\n      </div>\n      <div class=\"clearfix\"></div>\n      <div class=\"top-menu\">\n        <ul>\n          <li class=\"li-header color1\" routerLink=\"/home\" >Inicio</li>\n          <li class=\"li-header color2\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n             Juegos\n            <ul class=\"dropdown-menu\" role=\"menu\">\n              <li routerLink=\"/hanoit-tower\"><p>Torres de Hanói</p> </li>\n              <li><p>Juego 2</p></li>\n              <li><p>Juego 3</p></li>\n            </ul>\n          </li>\n\n          <li class=\"li-header color3\" routerLink=\"/about-us\">Información</li>\n          <div class=\"clearfix\"></div>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -294,6 +530,69 @@ var HeaderComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], HeaderComponent);
     return HeaderComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/home/home.component.html":
+/*!******************************************!*\
+  !*** ./src/app/home/home.component.html ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  home works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/home/home.component.scss":
+/*!******************************************!*\
+  !*** ./src/app/home/home.component.scss ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/home/home.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/home/home.component.ts ***!
+  \****************************************/
+/*! exports provided: HomeComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var HomeComponent = /** @class */ (function () {
+    function HomeComponent() {
+    }
+    HomeComponent.prototype.ngOnInit = function () {
+    };
+    HomeComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-home',
+            template: __webpack_require__(/*! ./home.component.html */ "./src/app/home/home.component.html"),
+            styles: [__webpack_require__(/*! ./home.component.scss */ "./src/app/home/home.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], HomeComponent);
+    return HomeComponent;
 }());
 
 
