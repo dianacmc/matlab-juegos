@@ -90,8 +90,11 @@ export class HanoitTowerComponent implements OnInit {
     if(this.tower2[0].value != 0 || this.tower3[0].value != 0 ) {
       console.log("Juego terminado");
       document.getElementById('alertBtn').click();
-      //Poner sweet alert y que cuando se presione ok se reinicia el juego
     }
+  }
+
+  instructions(){
+    document.getElementById('instBtn').click();
   }
 
 }
