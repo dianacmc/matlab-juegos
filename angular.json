@@ -29,7 +29,10 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/senku.js",
+              "src/assets/zepto.min.js"
+            ]
           },
           "configurations": {
             "production": {
