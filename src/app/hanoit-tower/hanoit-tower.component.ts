@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HanoitTowerComponent implements OnInit {
 
   private moves: number = 0;
+  private disks: number = 4;
   private tower1 = [];
   private tower2 = [];
   private tower3 = [];
@@ -21,25 +22,24 @@ export class HanoitTowerComponent implements OnInit {
   }
 
   initGame() {
-    this.tower1 = [
+    let temporalTower = [
       { name: 'first', value: 1 },
       { name: 'second', value: 2 },
       { name: 'third', value: 3 },
-      { name: 'fourth', value: 4 }
+      { name: 'fourth', value: 4 },
+      { name: 'fifth', value: 5 },
+      { name: 'sixth', value: 6 }
     ];
-    this.tower2 = [
-      { name: 'zero', value: 0 },
-      { name: 'zero', value: 0 },
-      { name: 'zero', value: 0 },
-      { name: 'zero', value: 0 }
-    ];
-    this.tower3 = [
-      { name: 'zero', value: 0 },
-      { name: 'zero', value: 0 },
-      { name: 'zero', value: 0 },
-      { name: 'zero', value: 0 }
-    ];
-
+    
+    this.tower1 = temporalTower.slice(0, this.disks);
+    this.tower2 = [];
+    this.tower3 = [];
+    
+    for (let index = 0; index < this.disks; index++) {
+      this.tower2.push({name: 'zero', value: 0});
+      this.tower3.push({name: 'zero', value: 0});
+    }
+    
     this.moves = 0;
     this.toBeMoved = null;
   }
@@ -89,7 +89,9 @@ export class HanoitTowerComponent implements OnInit {
   private gameFinished(){
     if(this.tower2[0].value != 0 || this.tower3[0].value != 0 ) {
       console.log("Juego terminado");
-      document.getElementById('alertBtn').click();
+      setTimeout(() => {
+        document.getElementById('alertBtn').click();
+      }, 0);
     }
   }
 
@@ -97,4 +99,14 @@ export class HanoitTowerComponent implements OnInit {
     document.getElementById('instBtn').click();
   }
 
+  options() {
+    document.getElementById('optionsBtn').click();
+  }
+
+  onOptionsClose() {
+    const selectedOption = document.querySelector('input[name=diskNumberOptions]:checked');
+    if (!selectedOption) return;
+    this.disks = +(<HTMLInputElement>selectedOption).value;
+    this.initGame();
+  }
 }
