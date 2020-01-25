@@ -7,8 +7,8 @@
     </div>
     <div class="row">
       <div class="col-md-4 tower1">
-        <div class="tower" (click)="move(tower1)">
-          <div *ngFor="let field of tower1" [class]="field.name">
+        <div class="tower" [ngStyle]="{'height.px': disks*59.8 }" (click)="move(tower1)">
+          <div *ngFor="let field of tower1" [ngClass]="[field.name, field.selected ? 'selected' : '']">
             <div class="field">
               {{ field.value }}
             </div>
@@ -16,8 +16,8 @@
         </div>
       </div>
       <div class="col-md-4 tower2">
-        <div class="tower" (click)="move(tower2)">
-          <div *ngFor="let field of tower2" [class]="field.name">
+        <div class="tower" [ngStyle]="{'height.px': disks*59.8 }" (click)="move(tower2)">
+          <div *ngFor="let field of tower2" [ngClass]="[field.name, field.selected ? 'selected' : '']">
             <div class="field">
               {{ field.value }}
             </div>
@@ -25,8 +25,8 @@
         </div>
       </div>
       <div class="col-md-4 tower3">
-        <div class="tower" (click)="move(tower3)">
-          <div *ngFor="let field of tower3" [class]="field.name">
+        <div class="tower" [ngStyle]="{'height.px': disks*59.8 }" (click)="move(tower3)">
+          <div *ngFor="let field of tower3" [ngClass]="[field.name, field.selected ? 'selected' : '']">
             <div class="field">
               {{ field.value }}
             </div>
@@ -50,7 +50,11 @@
 
 <button hidden id="alertBtn" [swal]="finishSwal">
 </button>
-<swal #finishSwal title="Felicidades!" text="Terminaste el juego en {{ moves }} movimientos" type="info" (confirm)="initGame()">
+<swal #finishSwal title="Felicidades!" 
+  html="Terminaste el juego en {{ moves }} movimientos <br/><br/>
+    <label style='font-size: 12px;'>Solución óptima: {{ minMoves }} movimientos</label>"
+  type="info" 
+  (confirm)="initGame()">
 </swal>
 
 <button hidden id="instBtn" [swal]="instSwal">
@@ -70,20 +74,21 @@ El objetivo del juego consiste en lograr crear la misma torre en una barra disti
 <!-- Options -->
 <button hidden id="optionsBtn" [swal]="optionsSwal">
 </button>
-<swal #optionsSwal title="Opciones del juego" (close)="onOptionsClose()">
+<swal #optionsSwal title="Opciones del juego" (confirm)="optionsConfirm()" 
+showCancelButton="true" reverseButtons="true" cancelButtonText="Cancelar" confirmButtonText="Aceptar">
   <div *swalPartial>
     <br>
     <h5>Seleccione la cantidad de discos</h5>
     <div class='form-check form-check-inline'>
-      <input class='form-check-input' type='radio' name='diskNumberOptions' id='fourDisksRadio' value='4' [checked]='disks==4'>
+      <input class='form-check-input' type='radio' name='diskNumberOptions' id='fourDisksRadio' value='4' [(ngModel)]="disksTemp">
       <label class='form-check-label' for='fourDisksRadio'>4 discos</label>
     </div>
     <div class='form-check form-check-inline'>
-      <input class='form-check-input' type='radio' name='diskNumberOptions' id='fiveDisksRadio' value='5' [checked]='disks==5'>
+      <input class='form-check-input' type='radio' name='diskNumberOptions' id='fiveDisksRadio' value='5' [(ngModel)]="disksTemp">
       <label class='form-check-label' for='fiveDisksRadio'>5 discos</label>
     </div>
     <div class='form-check form-check-inline'>
-      <input class='form-check-input' type='radio' name='diskNumberOptions' id='sixDisksRadio' value='6' [checked]='disks==6'>
+      <input class='form-check-input' type='radio' name='diskNumberOptions' id='sixDisksRadio' value='6' [(ngModel)]="disksTemp">
       <label class='form-check-label' for='sixDisksRadio'>6 discos</label>
     </div>
     <br/>

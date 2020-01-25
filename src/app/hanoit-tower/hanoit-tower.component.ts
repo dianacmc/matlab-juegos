@@ -7,18 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HanoitTowerComponent implements OnInit {
 
-  private moves: number = 0;
+  private moves: number;
+  private minMoves: number;
   private disks: number = 4;
-  private tower1 = [];
-  private tower2 = [];
-  private tower3 = [];
-  private toBeMoved;
-
-  constructor() {
-    this.initGame();
-  }
+  private disksTemp: string = "4";
+  private toBeMoved: any;
+  private originTower: Array<any>;
+  private tower1: Array<any>;
+  private tower2: Array<any>;
+  private tower3: Array<any>;
 
   ngOnInit() {
+    this.initGame();
   }
 
   initGame() {
@@ -35,59 +35,47 @@ export class HanoitTowerComponent implements OnInit {
     this.tower2 = [];
     this.tower3 = [];
     
-    for (let index = 0; index < this.disks; index++) {
-      this.tower2.push({name: 'zero', value: 0});
-      this.tower3.push({name: 'zero', value: 0});
-    }
-    
     this.moves = 0;
+    this.minMoves = (2 ** this.disks) - 1;
     this.toBeMoved = null;
   }
 
   private moveToAnotherTower(tower: Array<any>) {
-    for (let index = tower.length - 1; index >= 0; index--) {
-      if (tower[index].value == 0) {
-        if (!tower[index + 1]) {
-          tower[index] = this.toBeMoved;
-          this.toBeMoved = null;
-          this.moves++;
-          this.gameFinished();
-          break;
-        } else {
-          if ((tower[index + 1].value != 0)
-            && (tower[index + 1].value >
-              this.toBeMoved.value)) {
-            tower[index] = this.toBeMoved;
-            this.toBeMoved = null;
-            this.moves++;
-            this.gameFinished();
-            break;
-          }
-        }
-      }
+    if (tower.length === 0 || tower[0].value > this.toBeMoved.value) {
+      this.toBeMoved.selected = false;
+      tower.unshift(this.toBeMoved);
+      this.originTower.shift();
+      this.toBeMoved = null;
+      this.moves++;
+      this.gameFinished();
     }
   }
 
-  private selectToBeMoved(tower) {
-    for (let index = 0; index < tower.length; index++) {
-      if (tower[index].value != 0) {
-        this.toBeMoved = tower[index];
-        tower[index] = { name: 'zero', value: 0 };
-        break;
-      }
+  private selectToBeMoved(tower: Array<any>) {
+    if (this.toBeMoved) {
+      this.toBeMoved.selected = false;
+    } else if (tower.length > 0) {
+      this.originTower = tower;
+      this.toBeMoved = tower[0];
+      tower[0] = { ...tower[0], selected: true };
     }
   }
 
   move(tower: Array<any>) {
     if (this.toBeMoved) {
-      this.moveToAnotherTower(tower);
+      if (this.originTower != tower) {
+        this.moveToAnotherTower(tower);
+      } else {
+        tower[0] = { ...tower[0], selected: false };
+        this.toBeMoved = null;
+      }
     } else {
       this.selectToBeMoved(tower);
     }
   }
 
   private gameFinished(){
-    if(this.tower2[0].value != 0 || this.tower3[0].value != 0 ) {
+    if (this.tower2.length === this.disks || this.tower3.length === this.disks) {
       console.log("Juego terminado");
       setTimeout(() => {
         document.getElementById('alertBtn').click();
@@ -100,13 +88,12 @@ export class HanoitTowerComponent implements OnInit {
   }
 
   options() {
+    this.disksTemp = this.disks.toString();
     document.getElementById('optionsBtn').click();
   }
 
-  onOptionsClose() {
-    const selectedOption = document.querySelector('input[name=diskNumberOptions]:checked');
-    if (!selectedOption) return;
-    this.disks = +(<HTMLInputElement>selectedOption).value;
+  optionsConfirm() {
+    this.disks = +this.disksTemp;
     this.initGame();
   }
 }

@@ -6,48 +6,59 @@
     }
 
     .tower {
+        align-items: center;
         border-bottom: 3px ridge rgba(0, 0, 0, 0.92);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
         margin-bottom: 5px;
-        text-align: center;
         cursor: pointer;
         .field {
             color: white;
             padding: 1.2em 4.38em 1em 4.3em;
+            text-align: center;
+            user-select: none;
         }
-        .first{
+        .first {
             width: 50%;
             background: #ff7a85;
             border-radius: 25px;
             display: inline-block;
         }
-        .second{
+        .second {
             width: 60%;
             background: #5bb2fc;
             border-radius: 25px;
             display: inline-block;
         }
-        .third{
+        .third {
             width: 70%;
             background: #ffa659;
             border-radius: 25px;
             display: inline-block;
         }
-        .fourth{
+        .fourth {
             width: 80%;
             background: #B881CF;
             border-radius: 25px;
             display: inline-block;
-        }.fifth{
+        }
+        .fifth {
             width: 90%;
-            background: #58ebd3;
+            background: #18eecb;
             border-radius: 25px;
             display: inline-block;
-        }.sixth{
+        }
+        .sixth {
             width: 100%;
             background: #FEC63F;
             border-radius: 25px;
             display: inline-block;
         }
+        .selected {
+            opacity: 0.50;
+        }
+
     }
     .restart {
         padding-top: 30px;
