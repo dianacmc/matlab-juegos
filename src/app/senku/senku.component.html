@@ -66,16 +66,6 @@
 		<circle id="f32" class="ficha" cx="100" cy="175" r="10"/>
 		<circle id="f33" class="ficha" cx="125" cy="175" r="10"/>
 
-		<!--Menu
-		<rect id="cajaBoton" class="botonM" x="170" y="170" rx="4" ry="4" width="20" height="20"/>
-		<circle id="engranajeBoton" class="botonM" cx="180" cy="180" r="5" fill="black" stroke="black" stroke-dasharray="2" stroke-width="2"/>
-		<circle id="engranajeVacioBoton" class="botonM" cx="180" cy="180" r="3" fill="green"/>
-		<rect id="menu" class="menuClass" x="0" y="0" width="0" height="0" fill="rgb(50,50,50)" style="fill-opacity:0;stroke-opacity:0"/>
-		<text id="reiniciar" class="menuClass" x="35" y="50" style="fill-opacity:0;stroke-opacity:0"></text>
-		<text id="volverJuego" class="menuClass" x="40" y="150" style="fill-opacity:0;stroke-opacity:0"></text>
-		-->
-		
-
 		<!--Chivatos-->
 		<!--<text id="chivato0" x="10" y="5" font-size="0.3em" style="fill:black;"></text>
 		<text id="chivato1" x="10" y="10" font-size="0.3em" style="fill:black;"></text>
@@ -152,7 +142,7 @@
 
 	<button hidden id="winnerButton" [swal]="winnerSwal">
 	</button>
-	<swal #winnerSwal title="Ganaste!" type="info" (confirm)="confirmResetGame()"
+	<swal #winnerSwal title="Ganaste!" type="success" (confirm)="confirmResetGame()"
 	showCancelButton="true" reverseButtons="true" cancelButtonText="Regresar al juego" confirmButtonText="Reiniciar el juego">
 		<div *swalPartial>
 			!Felicidades, has ganado el juego!

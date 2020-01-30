@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HanoitTowerComponent } from './hanoit-tower/hanoit-tower.component'
 import { SenkuComponent } from './senku/senku.component';
+import { MagicSquaresComponent } from './magic-squares/magic-squares.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'senku',
     component: SenkuComponent
+  },
+  {
+    path: 'magic-squares',
+    component: MagicSquaresComponent
   },
   {
     path: '**',

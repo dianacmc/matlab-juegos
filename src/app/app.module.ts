@@ -13,6 +13,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { HanoitTowerComponent } from './hanoit-tower/hanoit-tower.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { SenkuComponent } from './senku/senku.component';
+import { MagicSquaresComponent } from './magic-squares/magic-squares.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SenkuComponent } from './senku/senku.component';
     HomeComponent,
     AboutUsComponent,
     HanoitTowerComponent,
-    SenkuComponent
+    SenkuComponent,
+    MagicSquaresComponent
   ],
   imports: [
     BrowserModule,

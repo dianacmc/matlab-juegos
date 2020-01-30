@@ -211,8 +211,8 @@ function initSenku()
 			setTimeout(() => {
 				$("#winnerButton").click();
 			}, 0);
-			//changeMenu();
 		}
+
 		//Si el juego no está ganado
 		else
 		{
@@ -387,10 +387,7 @@ function initSenku()
 	/**********************
 	** Manejo de eventos
 	**********************/
-	//$(".botonM").on('click', changeMenu);
 	$("#reiniciar").on('click', reiniciaPartida);
-	//$("#volverJuego").on('click', changeMenu);
-
 
 	$("#f1").on('click', function(){clickCasilla("#f1");});
 	$("#f2").on('click', function(){clickCasilla("#f2");});
