@@ -26,4 +26,26 @@
         <p>Aquí van las instrucciones</p>
     </div>
 </swal>
+
+<!-- Options -->
+<button hidden id="optionsBtn" [swal]="optionsSwal">
+</button>
+<swal #optionsSwal title="Opciones del juego" (confirm)="optionsConfirm()" 
+showCancelButton="true" reverseButtons="true" cancelButtonText="Cancelar" confirmButtonText="Aceptar">
+  <div *swalPartial>
+    <br>
+    <h5>Seleccione el tamaño del cuadrado mágico</h5>
+    <div class='form-check form-check-inline'>
+      <input class='form-check-input' type='radio' name='diskNumberOptions' id='fourDisksRadio' value='3' [(ngModel)]="squareOrderTemp">
+      <label class='form-check-label' for='fourDisksRadio'>3x3</label>
+    </div>
+    <div class='form-check form-check-inline'>
+      <input class='form-check-input' type='radio' name='diskNumberOptions' id='fiveDisksRadio' value='4' [(ngModel)]="squareOrderTemp">
+      <label class='form-check-label' for='fiveDisksRadio'>4x4</label>
+    </div>
+    <br/>
+    <br/>
+  </div>
+</swal>
+
 </div>

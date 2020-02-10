@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MagicSquaresComponent implements OnInit {
 
-  private squareOrder: number = 3;
+  private squareOrder: number = 4;
+  private squareOrderTemp: string = "4";
   private square: Array<Array<any>>;
 
   constructor() { }
@@ -29,6 +30,16 @@ export class MagicSquaresComponent implements OnInit {
 
   instructions() {
     document.getElementById("instructionsButton").click();
+  }
+
+  options() {
+    this.squareOrderTemp = this.squareOrder.toString();
+    document.getElementById('optionsBtn').click();
+  }
+
+  optionsConfirm() {
+    this.squareOrder = +this.squareOrderTemp;
+    this.initSquare();
   }
 
 }
