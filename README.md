@@ -3,8 +3,9 @@
 
 #Se debe tener instalado: 
 
+Versión de NodeJS (8.x)
 Versión de Angular
-Versión de Angular-CLI
+Versión de Angular-CLI (7.x)
 Versión de Express
 Heroku CLI
 
@@ -33,8 +34,9 @@ Se realiza un push a master, una vez realizado, esperarse unos segundos y el ser
 #Información Adicional
 Autores:
 
-  Josué Villagra Marín     josue.villagra@ucrso.info 
-  Kevin Rodriguez Valverde  kevin.rodriguez@ucrso.info 
+  Josué Villagra Marín      josue.villagra@ucrso.info 
+  Kevin Rodriguez Valverde  kevin.rodriguez@ucrso.info
+  Diana Murillo Cerdas      diana.murillo@ucrso.info 
   
 NOTA: Si se desea acceso a modificar este repositorio y el proyecto en general, por favor pedir acceso a los autores de este repositorio.
   

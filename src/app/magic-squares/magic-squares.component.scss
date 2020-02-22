@@ -19,6 +19,10 @@ $square-bg: #ff81ac;
     transition: background-color 0.2s;
     user-select: none;
     width: 68px;
+
+    //single line
+    white-space: nowrap;
+    overflow: hidden;
     
     &:hover {
         background-color: darken($square-bg, 6);
@@ -27,10 +31,26 @@ $square-bg: #ff81ac;
     &:active {
         background-color: darken($square-bg, 10);
     }
+
+    &:focus {
+        outline: none !important;
+    }
+}
+
+.center-verify {
+    text-align: center;
+}
+
+.btn-verify {
+    background-color: #0ce2b6;
+    color: white;
+    font-size: 17px;
+    height: 50px;
+    margin-top: 30px;
 }
 
 .restart {
-    padding: 30px 0;
+    padding: 20px 0;
     display: flex;
     align-items: center;
     justify-content: center;

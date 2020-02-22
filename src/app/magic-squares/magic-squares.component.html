@@ -1,14 +1,19 @@
 <div class="container">
   <div class="square">
-    <div *ngFor="let row of square" style="line-height: 0;">
-      <div *ngFor="let col of row" class="square-item">
+    <div *ngFor="let row of squareTemp" style="line-height: 0;">
+      <div *ngFor="let col of row" class="square-item" name="square-items" contenteditable="true">
         {{col}}
       </div>
     </div>  
   </div>
+  <div class="center-verify">
+    <button type="button" [ngClass]="['btn', 'btn-verify']" (click)="verifySquare()" [ngStyle]="{'width.px': squareOrder*68 }">
+      <fa name="check" class="icon"></fa> Verificar Respuesta
+    </button>
+  </div>
 
   <div class="row restart">
-    <button type="button" class="btn btn-dark" (click)="initGame()">
+    <button type="button" class="btn btn-dark" (click)="restart()">
       <fa name="repeat" class="icon"></fa> Reiniciar
     </button>
     <button type="button" class="btn btn-dark" (click)="instructions()">
@@ -25,27 +30,53 @@
     <div *swalPartial>
         <p>Aquí van las instrucciones</p>
     </div>
-</swal>
+  </swal>
+
+  <button hidden id="finishButton" [swal]="finishSwal">
+	</button>
+	<swal #finishSwal title="Incorrecto!" type="info" confirmButtonText="Volver al juego">
+		<div *swalPartial>
+			La respuesta no es correcta, revisa la solución.
+		</div>
+	</swal>
+
+  <button hidden id="winnerButton" [swal]="winnerSwal">
+	</button>
+	<swal #winnerSwal title="Correcto!" type="success" (confirm)="initGame()"
+	showCancelButton="true" reverseButtons="true" cancelButtonText="Volver al juego" confirmButtonText="Seguir jugando">
+		<div *swalPartial>
+			!Felicidades, has ganado la partida!
+		</div>
+  </swal>
+  
+  <button hidden id="winnerGameButton" [swal]="winnerGameSwal">
+	</button>
+	<swal #winnerGameSwal title="Ganaste!" type="success" (confirm)="initGame()"
+	showCancelButton="true" reverseButtons="true" cancelButtonText="Volver al juego" confirmButtonText="Reiniciar juego">
+		<div *swalPartial>
+			!Felicidades, has terminado todos los cuadrados mágicos con éxito!
+		</div>
+	</swal>
 
 <!-- Options -->
-<button hidden id="optionsBtn" [swal]="optionsSwal">
-</button>
-<swal #optionsSwal title="Opciones del juego" (confirm)="optionsConfirm()" 
-showCancelButton="true" reverseButtons="true" cancelButtonText="Cancelar" confirmButtonText="Aceptar">
-  <div *swalPartial>
-    <br>
-    <h5>Seleccione el tamaño del cuadrado mágico</h5>
-    <div class='form-check form-check-inline'>
-      <input class='form-check-input' type='radio' name='diskNumberOptions' id='fourDisksRadio' value='3' [(ngModel)]="squareOrderTemp">
-      <label class='form-check-label' for='fourDisksRadio'>3x3</label>
+  <button hidden id="optionsBtn" [swal]="optionsSwal">
+  </button>
+  <swal #optionsSwal title="Opciones del juego" (confirm)="optionsConfirm()" 
+  showCancelButton="true" reverseButtons="true" cancelButtonText="Cancelar" confirmButtonText="Aceptar">
+    <div *swalPartial>
+      <br>
+      <h5>Seleccione el tamaño del cuadrado mágico</h5>
+      <div class='form-check form-check-inline'>
+        <input class='form-check-input' type='radio' name='diskNumberOptions' id='fourDisksRadio' value='3' [(ngModel)]="squareOrderTemp">
+        <label class='form-check-label' for='fourDisksRadio'>3x3</label>
+      </div>
+      <div class='form-check form-check-inline'>
+        <input class='form-check-input' type='radio' name='diskNumberOptions' id='fiveDisksRadio' value='4' [(ngModel)]="squareOrderTemp">
+        <label class='form-check-label' for='fiveDisksRadio'>4x4</label>
+      </div>
+      <br/>
+      <br/>
     </div>
-    <div class='form-check form-check-inline'>
-      <input class='form-check-input' type='radio' name='diskNumberOptions' id='fiveDisksRadio' value='4' [(ngModel)]="squareOrderTemp">
-      <label class='form-check-label' for='fiveDisksRadio'>4x4</label>
-    </div>
-    <br/>
-    <br/>
-  </div>
-</swal>
+  </swal>
 
 </div>
