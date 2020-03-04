@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import  *  as  squaresOrder3  from  '../squares-order3.json';
-import  *  as  squaresOrder4  from  '../squares-order4.json';
+import { Component, OnInit, Input, ɵConsole } from '@angular/core';
+import  *  as  squaresOrder3  from  './squares-order-3.json';
+import  *  as  squaresOrder4  from  './squares-order-4.json';
 
 @Component({
   selector: 'app-magic-squares',
@@ -11,15 +11,11 @@ export class MagicSquaresComponent implements OnInit {
 
   private squareOrder: number = 3;
   private squareOrderTemp: string = "3";
-  private numberGameOrder3: number = 1;
-  private numberGameOrder4: number = 1;
+  private numberGameOrder3: number = 0;
+  private numberGameOrder4: number = 0;
   private completeLine: number;
   private square: Array<Array<any>>;
   private squareTemp: Array<Array<any>>;
-
-  constructor() {
-
-  }
 
   ngOnInit() {
     this.initGame();
@@ -74,10 +70,11 @@ export class MagicSquaresComponent implements OnInit {
       this.initSquareTempOrder4(lineToComplete);
     }
     this.completeLine = lineToComplete;
+    this.incrementNumberGame();
   }
 
   //initialize the square with all the numbers
-  initSquare() {
+  private initSquare() {
     if (this.squareOrder == 3) {
       switch(this.numberGameOrder3) {
         case 1:
@@ -198,7 +195,7 @@ export class MagicSquaresComponent implements OnInit {
       break;
       case 7:
         //col 2
-        this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[0][1], selected: true}, {value: 0, selected: false}));
+        this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[0][1], selected: true}, {value: this.square[0][2], selected: true}));
         this.squareTemp.push(new Array({value: this.square[1][0], selected: true}, {value: this.square[1][1], selected: true}, {value: 0, selected: false}));
         this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[2][1], selected: true}, {value: 0, selected: false}));
       break;
@@ -217,90 +214,80 @@ export class MagicSquaresComponent implements OnInit {
     switch(lineToComplete) {
       case 1:
         //diagonal 1
-        this.squareTemp.push(new Array({value: this.square[0][0], selected: true}, {value: 0, selected: false}, {value: 0, selected: false}, {value: 0, selected: false}));
-        this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[1][1], selected: true}, {value: 0, selected: false}, {value: 0, selected: false}));
-        this.squareTemp.push(new Array({value: 0, selected: false}, {value: 0, selected: false}, {value: this.square[2][2], selected: true}, {value: 0, selected: false}));
+        this.squareTemp.push(new Array({value: this.square[0][0], selected: true}, {value: 0, selected: false}, {value: 0, selected: false}, {value: this.square[0][3], selected: true}));
+        this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[1][1], selected: true}, {value: 0, selected: false}, {value: this.square[1][3], selected: true}));
+        this.squareTemp.push(new Array({value: this.square[2][0], selected: true}, {value: 0, selected: false}, {value: this.square[2][2], selected: true}, {value: 0, selected: false}));
         this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[3][1], selected: true}, {value: this.square[3][2], selected: true}, {value: this.square[3][3], selected: true}));
         break;
       case 2:
         //diagonal 2
         this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[0][1], selected: true}, {value: this.square[0][2], selected: true}, {value: this.square[0][3], selected: true}));
-        this.squareTemp.push(new Array({value: 0, selected: false}, {value: 0, selected: false}, {value: this.square[1][2], selected: true}, {value: 0, selected: false}));
-        this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[2][1], selected: true}, {value: 0, selected: false}, {value: 0, selected: false}));
-        this.squareTemp.push(new Array({value: this.square[3][0], selected: true}, {value: 0, selected: false}, {value: 0, selected: false}, {value: 0, selected: false}));
+        this.squareTemp.push(new Array({value: this.square[1][0], selected: true}, {value: 0, selected: false}, {value: this.square[1][2], selected: true}, {value: 0, selected: false}));
+        this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[2][1], selected: true}, {value: 0, selected: false}, {value: this.square[2][3], selected: true}));
+        this.squareTemp.push(new Array({value: this.square[3][0], selected: true}, {value: 0, selected: false}, {value: 0, selected: false}, {value: this.square[3][3], selected: true}));
       break;
       case 3:
         //row 1
         this.squareTemp.push(new Array({value: this.square[0][0], selected: true}, {value: this.square[0][1], selected: true}, {value: this.square[0][2], selected: true}, {value: this.square[0][3], selected: true}));
-        this.squareTemp.push(new Array({value: this.square[1][0], selected: true}, {value: 0, selected: false}, {value: 0, selected: false}, {value: 0, selected: false}));
-        this.squareTemp.push(new Array({value: this.square[2][0], selected: true}, {value: 0, selected: false}, {value: 0, selected: false}, {value: 0, selected: false}));
+        this.squareTemp.push(new Array({value: this.square[1][0], selected: true}, {value: 0, selected: false}, {value: this.square[1][2], selected: true}, {value: this.square[1][3], selected: true}));
+        this.squareTemp.push(new Array({value: this.square[2][0], selected: true}, {value: this.square[2][1], selected: true}, {value: 0, selected: false}, {value: 0, selected: false}));
         this.squareTemp.push(new Array({value: 0, selected: false}, {value: 0, selected: false}, {value: 0, selected: false}, {value: 0, selected: false}));
       break;
       case 4:
         //row 2
-        this.squareTemp.push(new Array({value: 0, selected: false}, {value: 0, selected: false}, {value: 0, selected: false}, {value: 0, selected: false}));
+        this.squareTemp.push(new Array({value: this.square[0][0], selected: true}, {value: 0, selected: false}, {value: this.square[0][2], selected: true}, {value: 0, selected: false}));
         this.squareTemp.push(new Array({value: this.square[1][0], selected: true}, {value: this.square[1][1], selected: true}, {value: this.square[1][2], selected: true}, {value: this.square[1][3], selected: true}));
         this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[2][1], selected: true}, {value: 0, selected: false}, {value: 0, selected: false}));
-        this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[3][1], selected: true}, {value: 0, selected: false}, {value: 0, selected: false}));
+        this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[3][1], selected: true}, {value: 0, selected: false}, {value: this.square[3][3], selected: true}));
       break;
       case 5:
         //row 3
         this.squareTemp.push(new Array({value: 0, selected: false}, {value: 0, selected: false}, {value: this.square[0][2], selected: true}, {value: 0, selected: false}));
         this.squareTemp.push(new Array({value: 0, selected: false}, {value: 0, selected: false}, {value: this.square[1][2], selected: true}, {value: 0, selected: false}));
         this.squareTemp.push(new Array({value: this.square[2][0], selected: true}, {value: this.square[2][1], selected: true}, {value: this.square[2][2], selected: true}, {value: this.square[2][3], selected: true}));
-        this.squareTemp.push(new Array({value: 0, selected: false}, {value: 0, selected: false}, {value: 0, selected: false}, {value: 0, selected: false}));
+        this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[3][1], selected: true}, {value: 0, selected: false}, {value: this.square[3][3], selected: true}));
       break;
       case 6:
         //row 4
-        this.squareTemp.push(new Array({value: 0, selected: false}, {value: 0, selected: false}, {value: 0, selected: false}, {value: 0, selected: false}));
-        this.squareTemp.push(new Array({value: 0, selected: false}, {value: 0, selected: false}, {value: 0, selected: false}, {value: this.square[1][3], selected: true}));
-        this.squareTemp.push(new Array({value: 0, selected: false}, {value: 0, selected: false}, {value: 0, selected: false}, {value: this.square[2][3], selected: true}));
+        this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[0][1], selected: true}, {value: 0, selected: false}, {value: 0, selected: false}));
+        this.squareTemp.push(new Array({value: this.square[1][0], selected: true}, {value: 0, selected: false}, {value: 0, selected: false}, {value: this.square[1][3], selected: true}));
+        this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[2][1], selected: true}, {value: 0, selected: false}, {value: this.square[2][3], selected: true}));
         this.squareTemp.push(new Array({value: this.square[3][0], selected: true}, {value: this.square[3][1], selected: true}, {value: this.square[3][2], selected: true}, {value: this.square[3][3], selected: true}));
         break;
       case 7:
-        this.squareTemp.push(new Array({value: this.square[0][0], selected: true}, {value: 0, selected: false}, {value: 0, selected: false}, {value: 0, selected: false}));
-        this.squareTemp.push(new Array({value: this.square[1][0], selected: true}, {value: 0, selected: false}, {value: 0, selected: false}, {value: 0, selected: false}));
+        //col 1
+        this.squareTemp.push(new Array({value: this.square[0][0], selected: true}, {value: 0, selected: false}, {value: this.square[0][2], selected: true}, {value: this.square[0][3], selected: true}));
+        this.squareTemp.push(new Array({value: this.square[1][0], selected: true}, {value: this.square[1][1], selected: true}, {value: 0, selected: false}, {value: 0, selected: false}));
         this.squareTemp.push(new Array({value: this.square[2][0], selected: true}, {value: 0, selected: false}, {value: 0, selected: false}, {value: 0, selected: false}));
         this.squareTemp.push(new Array({value: this.square[3][0], selected: true}, {value: this.square[3][1], selected: true}, {value: this.square[3][2], selected: true}, {value: 0, selected: false}));
       break;
       case 8:
         //col 2
-        this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[0][1], selected: true}, {value: 0, selected: false}, {value: 0, selected: false}));
+        this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[0][1], selected: true}, {value: this.square[0][2], selected: true}, {value: this.square[0][3], selected: true}));
         this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[1][1], selected: true}, {value: 0, selected: false}, {value: 0, selected: false}));
         this.squareTemp.push(new Array({value: this.square[2][0], selected: true}, {value: this.square[2][1], selected: true}, {value: this.square[2][2], selected: true}, {value: 0, selected: false}));
-        this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[3][1], selected: true}, {value: 0, selected: false}, {value: 0, selected: false}));
+        this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[3][1], selected: true}, {value: 0, selected: false}, {value: this.square[3][3], selected: true}));
       break;
       case 9:
         //col 3
-        this.squareTemp.push(new Array({value: 0, selected: false}, {value: 0, selected: false}, {value: this.square[0][2], selected: true}, {value: 0, selected: false}));
+        this.squareTemp.push(new Array({value: this.square[0][0], selected: true}, {value: 0, selected: false}, {value: this.square[0][2], selected: true}, {value: 0, selected: false}));
         this.squareTemp.push(new Array({value: this.square[1][0], selected: true}, {value: this.square[1][1], selected: true}, {value: this.square[1][2], selected: true}, {value: 0, selected: false}));
         this.squareTemp.push(new Array({value: 0, selected: false}, {value: 0, selected: false}, {value: this.square[2][2], selected: true}, {value: 0, selected: false}));
-        this.squareTemp.push(new Array({value: 0, selected: false}, {value: 0, selected: false}, {value: this.square[3][2], selected: true}, {value: 0, selected: false}));
+        this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[3][1], selected: true}, {value: this.square[3][2], selected: true}, {value: 0, selected: false}));
       break;
       case 10:
-        //col 3
-        this.squareTemp.push(new Array({value: 0, selected: false}, {value: 0, selected: false}, {value: 0, selected: false}, {value: this.square[0][3], selected: true}));
-        this.squareTemp.push(new Array({value: 0, selected: false}, {value: 0, selected: false}, {value: 0, selected: false}, {value: this.square[1][3], selected: true}));
-        this.squareTemp.push(new Array({value: 0, selected: false}, {value: 0, selected: false}, {value: 0, selected: false}, {value: this.square[2][3], selected: true}));
+        //col 4
+        this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[0][1], selected: true}, {value: 0, selected: false}, {value: this.square[0][3], selected: true}));
+        this.squareTemp.push(new Array({value: this.square[1][0], selected: true}, {value: 0, selected: false}, {value: 0, selected: false}, {value: this.square[1][3], selected: true}));
+        this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[2][1], selected: true}, {value: 0, selected: false}, {value: this.square[2][3], selected: true}));
         this.squareTemp.push(new Array({value: 0, selected: false}, {value: this.square[3][1], selected: true}, {value: this.square[3][2], selected: true}, {value: this.square[3][3], selected: true}));
       break;
     }
   }
 
-  //get a random integer
+  //get a random number
   private getRandomNumber(min: any, max: any) {
     return min + Math.floor((max - min) * Math.random());
-  }
-
-  //no se esta usando
-  fillNumberCol() {
-    for(var i = 0; i < this.squareOrder; i++) {
-        this.square[i] = [];
-        for(var j = 0; j < this.squareOrder; j++) {
-          this.square[i][j] = this.squareOrder*i + j+1;
-
-        }
-    }
   }
 
   //restart the current game
@@ -314,18 +301,6 @@ export class MagicSquaresComponent implements OnInit {
 
   //verify that the square is correctly completed
   verifySquare() {
-    /*let squareArray: Array<number> = new Array();
-    let square: Array<any> = new Array();
-
-    var input = document.getElementsByName("square-items");
-    input.forEach(element => {
-      console.log(element.textContent);
-      let item = +element.textContent; 
-      squareArray.push(item);
-    });
-
-    this.fillSquareByOrder(square, squareArray);*/
-
     for(var i = 0; i < this.squareOrder; i++) {
       for(var j = 0; j < this.squareOrder; j++) {
         if (this.square[i][j] != this.squareTemp[i][j].value) {
@@ -335,18 +310,19 @@ export class MagicSquaresComponent implements OnInit {
       }
     }
 
-    if(this.numberGameOrder3 == 10 || this.numberGameOrder4 == 10) {
+    if(this.numberGameOrder3 >= 11 || this.numberGameOrder4 >= 11) {
       this.gameWon();
     } else {
-      this.confirmWinGame();
+      this.confirmSquareSolved();
     }
   }
 
-  
-  changed(event, i: number, j: number) {
+  //save the number entered by the user
+  numberChanged(event, i: number, j: number) {
     this.squareTemp[i][j].value = event.target.value;
   }
   
+  //increase the number of games in the game depending on the order of the square
   private incrementNumberGame() {
     if (this.squareOrder == 3) {
       this.numberGameOrder3++;
@@ -361,7 +337,7 @@ export class MagicSquaresComponent implements OnInit {
 
   options() {
     this.squareOrderTemp = this.squareOrder.toString();
-    document.getElementById('optionsBtn').click();
+    document.getElementById('optionsButton').click();
   }
 
   optionsConfirm() {
@@ -369,17 +345,15 @@ export class MagicSquaresComponent implements OnInit {
     this.initGame();
   }
   
-  confirmWinGame() {
-    document.getElementById('winnerButton').click();
-    this.incrementNumberGame();
+  confirmSquareSolved() {
+    document.getElementById('squareSolvedButton').click();
   }
 
   gameOver() {
-    document.getElementById('finishButton').click();
+    document.getElementById('incorrectButton').click();
   }
 
   gameWon() {
     document.getElementById('winnerGameButton').click();
-    this.incrementNumberGame();
   }
 }

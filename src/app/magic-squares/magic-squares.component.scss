@@ -6,16 +6,15 @@ $square-bg: #ff81ac;
 }
 
 .square-content {
-    //display: inline-block;
     background-color: $square-bg;
     color: white;
     border: none;
+    font-size: 22px;
     transition: background-color 0.2s;
     width: 68px;
     height: 68px;
     box-shadow: #e7dfdf 0px 1px 1px 1px;
     text-align: center;
-    //user-select: none;
     cursor: pointer;
     
     &:hover {
@@ -37,35 +36,8 @@ $square-bg: #ff81ac;
 }
 
 .square-item {
-    //background-color: $square-bg;
-    //box-shadow: #e7dfdf 0px 1px 1px 1px;
-    color: white;
-    cursor: pointer;
     display: inline-block;
-    font-size: 22px;
-    //height: 68px;
-    line-height: 2.8;
     margin: 2px;
-    //text-align: center;
-    //transition: background-color 0.2s;
-    //user-select: none;
-    //width: 68px;
-    
-    //single line
-    //white-space: nowrap;
-    //overflow: hidden;
-    
-    /*&:hover {
-        background-color: darken($square-bg, 6);
-    }
-
-    &:active {
-        background-color: darken($square-bg, 10);
-    }
-
-    &:focus {
-        outline: none !important;
-    }*/
 }
 
 .center-verify {

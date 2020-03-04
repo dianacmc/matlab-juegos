@@ -2,9 +2,9 @@
   <div class="square">
     <div *ngFor="let row of squareTemp; let i = index" style="line-height: 0;">
       <div *ngFor="let col of row; let j = index" class="square-item">
-        <input type="number" min="0" value="{{col.value}}" 
+        <input type="number" min="0" value="{{col.value}}"
           [ngClass]="['square-content', col.selected ? 'selected' : '']" 
-          (change)="changed($event, i, j)"
+          (change)="numberChanged($event, i, j)"
           [disabled]="col.selected"/>
       </div>
     </div>  
@@ -27,6 +27,7 @@
     </button>
   </div>
 
+<!-- instructions -->
   <button hidden id="instructionsButton" [swal]="instructionsSwal">
   </button>
   <swal #instructionsSwal title="Instrucciones del juego" type="info" (confirm)="optionsConfirm()">
@@ -47,23 +48,26 @@
     </div>
   </swal>
 
-  <button hidden id="finishButton" [swal]="finishSwal">
+ <!-- square incorrect --> 
+  <button hidden id="incorrectButton" [swal]="incorrectSwal">
 	</button>
-	<swal #finishSwal title="Incorrecto!" type="info" confirmButtonText="Volver al juego">
+	<swal #incorrectSwal title="Incorrecto!" type="info" confirmButtonText="Volver al juego">
 		<div *swalPartial>
 			La respuesta no es correcta, revisa la solución.
 		</div>
 	</swal>
 
-  <button hidden id="winnerButton" [swal]="winnerSwal">
+<!-- square solved -->
+  <button hidden id="squareSolvedButton" [swal]="squareSolvedSwal">
 	</button>
-	<swal #winnerSwal title="Correcto!" type="success" (confirm)="initGame()"
+	<swal #squareSolvedSwal title="Correcto!" type="success" (confirm)="initGame()"
 	showCancelButton="true" reverseButtons="true" cancelButtonText="Volver al juego" confirmButtonText="Seguir jugando">
 		<div *swalPartial>
 			!Felicidades, has ganado la partida!
 		</div>
   </swal>
   
+<!-- game won -->
   <button hidden id="winnerGameButton" [swal]="winnerGameSwal">
 	</button>
 	<swal #winnerGameSwal title="Ganaste!" type="success" (confirm)="initGame()"
@@ -74,24 +78,23 @@
 	</swal>
 
 <!-- Options -->
-  <button hidden id="optionsBtn" [swal]="optionsSwal">
+  <button hidden id="optionsButton" [swal]="optionsSwal">
   </button>
   <swal #optionsSwal title="Opciones del juego" (confirm)="optionsConfirm()" 
   showCancelButton="true" reverseButtons="true" cancelButtonText="Cancelar" confirmButtonText="Aceptar">
     <div *swalPartial>
       <br>
-      <h5>Seleccione el tamaño del cuadrado mágico</h5>
+      <h5>Seleccione el orden del cuadrado mágico</h5>
       <div class='form-check form-check-inline'>
         <input class='form-check-input' type='radio' name='diskNumberOptions' id='fourDisksRadio' value='3' [(ngModel)]="squareOrderTemp">
-        <label class='form-check-label' for='fourDisksRadio'>3x3</label>
+        <label class='form-check-label' for='fourDisksRadio'>Orden 3x3</label>
       </div>
       <div class='form-check form-check-inline'>
         <input class='form-check-input' type='radio' name='diskNumberOptions' id='fiveDisksRadio' value='4' [(ngModel)]="squareOrderTemp">
-        <label class='form-check-label' for='fiveDisksRadio'>4x4</label>
+        <label class='form-check-label' for='fiveDisksRadio'>Orden 4x4</label>
       </div>
       <br/>
       <br/>
     </div>
   </swal>
-
 </div>
