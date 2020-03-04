@@ -3,8 +3,9 @@
 
 #Se debe tener instalado: 
 
+Versión de NodeJS (8.x)
 Versión de Angular
-Versión de Angular-CLI
+Versión de Angular-CLI (7.x)
 Versión de Express
 Heroku CLI
 
@@ -13,7 +14,7 @@ Se recomienda utilizar Angular CLI para la creación de componentes con el fin d
 # Configuración inicial 
 Clonar el repositorio
 Iniciar sesión en heroku
-heroku git:remote -a matlab-juegos-ucrso
+heroku git:remote -a matlab-juegos-ucr
 
 Importante: debe tener acceso al repositorio de Heroku para hacer cambios en el host.
 
@@ -28,13 +29,14 @@ npm start
 # Subir cambios a host (Heroku)
 
 Se debe realizar un ng build en la carpeta raíz.
-Se realiza un push a master, una vez realizado, esperarse unos segundos y el servidor de heroku se actualiza de manera automática.
+Se realizar un push a master, una vez realizado, esperarse unos segundos y el servidor de heroku se actualiza de manera automática.
 
 #Información Adicional
 Autores:
 
-  Josué Villagra Marín     josue.villagra@ucrso.info 
-  Kevin Rodriguez Valverde  kevin.rodriguez@ucrso.info 
+  Josué Villagra Marín      josue.villagra@ucrso.info 
+  Kevin Rodriguez Valverde  kevin.rodriguez@ucrso.info
+  Diana Murillo Cerdas      diana.murillo@ucrso.info 
   
 NOTA: Si se desea acceso a modificar este repositorio y el proyecto en general, por favor pedir acceso a los autores de este repositorio.
   

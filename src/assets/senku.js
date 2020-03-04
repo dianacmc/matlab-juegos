@@ -1,6 +1,6 @@
-console.log("working fine");
-$(function()
+function initSenku()
 {
+	console.log("working fine");
 	var fichaSeleccionada; //La ficha que esté seleccionada
 	var menuVisible = false;
 	var contFichas = 32;
@@ -208,9 +208,11 @@ $(function()
 		//Si el juego está ganado
 		if(contFichas == 1)
 		{
-			alert('¡Ha ganado el juego! ¿Desea reiniciar la partida?');
-			changeMenu();
+			setTimeout(() => {
+				$("#winnerButton").click();
+			}, 0);
 		}
+
 		//Si el juego no está ganado
 		else
 		{
@@ -303,8 +305,9 @@ $(function()
 
 			if(!movimientosPosibles)
 			{
-				alert("Sin movimientos posibles.");
-				changeMenu();
+				setTimeout(() => {
+					$("#finishButton").click();
+				}, 0);
 			}
 		}
 	}
@@ -324,33 +327,6 @@ $(function()
 
 	setInterval(function(){chivato();}, 1000);
 	chivato();*/
-
-	/***************************
-	** Muestra/oculta el menu
-	***************************/
-	function changeMenu()
-	{
-		//Si el menu esta visible se oculta
-		if(menuVisible)
-		{
-			$(".menuClass").attr("style", "fill-opacity:0;stroke-opacity:0");
-			$("#menu").attr("width", "0");
-			$("#menu").attr("height", "0");
-			$("#reiniciar").html("");
-			$("#volverJuego").html("");
-			menuVisible = false;
-		}
-		//Si el menu esta oculto se muestra
-		else
-		{
-			$(".menuClass").attr("style", "");
-			$("#menu").attr("width", "100%");
-			$("#menu").attr("height", "100%");
-			$("#reiniciar").html("Reiniciar partida");
-			$("#volverJuego").html("Volver al juego");
-			menuVisible = true;
-		}
-	}
 
 	/***********************
 	** Reinicia la partida
@@ -406,17 +382,12 @@ $(function()
 
 		contFichas = 32;
 		fichaSeleccionada = undefined;
-
-		changeMenu();
 	}
 
 	/**********************
 	** Manejo de eventos
 	**********************/
-	$(".botonM").on('click', changeMenu);
 	$("#reiniciar").on('click', reiniciaPartida);
-	$("#volverJuego").on('click', changeMenu);
-
 
 	$("#f1").on('click', function(){clickCasilla("#f1");});
 	$("#f2").on('click', function(){clickCasilla("#f2");});
@@ -451,5 +422,4 @@ $(function()
 	$("#f31").on('click', function(){clickCasilla("#f31");});
 	$("#f32").on('click', function(){clickCasilla("#f32");});
 	$("#f33").on('click', function(){clickCasilla("#f33");});
-})
-
+}

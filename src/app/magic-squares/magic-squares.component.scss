@@ -1,0 +1,73 @@
+$square-bg: #ff81ac;
+
+.square {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.square-content {
+    background-color: $square-bg;
+    color: white;
+    border: none;
+    font-size: 22px;
+    transition: background-color 0.2s;
+    width: 68px;
+    height: 68px;
+    box-shadow: #e7dfdf 0px 1px 1px 1px;
+    text-align: center;
+    cursor: pointer;
+    
+    &:hover {
+        background-color: darken($square-bg, 6);
+    }
+    
+    &:active {
+        background-color: darken($square-bg, 10);
+    }
+    
+    &:focus {
+        outline: none !important;
+    }
+}
+
+.selected {
+    background-color: darken($square-bg, 10);
+    cursor: default;
+}
+
+.square-item {
+    display: inline-block;
+    margin: 2px;
+}
+
+.center-verify {
+    text-align: center;
+}
+
+.btn-verify {
+    background-color: #0ce2b6;
+    color: white;
+    font-size: 17px;
+    height: 50px;
+    margin-top: 30px;
+}
+
+.restart {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    button {
+        height: 50px;
+        width: 300px;
+        color: #fff;
+        font-size: 20px;
+        margin: 10px;
+    }
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

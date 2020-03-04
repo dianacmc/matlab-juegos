@@ -7,8 +7,8 @@
     </div>
     <div class="row">
       <div class="col-md-4 tower1">
-        <div class="tower" (click)="move(tower1)">
-          <div *ngFor="let field of tower1" [class]="field.name">
+        <div class="tower" [ngStyle]="{'height.px': disks*59.8 }" (click)="move(tower1)">
+          <div *ngFor="let field of tower1" [ngClass]="[field.name, field.selected ? 'selected' : '']">
             <div class="field">
               {{ field.value }}
             </div>
@@ -16,8 +16,8 @@
         </div>
       </div>
       <div class="col-md-4 tower2">
-        <div class="tower" (click)="move(tower2)">
-          <div *ngFor="let field of tower2" [class]="field.name">
+        <div class="tower" [ngStyle]="{'height.px': disks*59.8 }" (click)="move(tower2)">
+          <div *ngFor="let field of tower2" [ngClass]="[field.name, field.selected ? 'selected' : '']">
             <div class="field">
               {{ field.value }}
             </div>
@@ -25,8 +25,8 @@
         </div>
       </div>
       <div class="col-md-4 tower3">
-        <div class="tower" (click)="move(tower3)">
-          <div *ngFor="let field of tower3" [class]="field.name">
+        <div class="tower" [ngStyle]="{'height.px': disks*59.8 }" (click)="move(tower3)">
+          <div *ngFor="let field of tower3" [ngClass]="[field.name, field.selected ? 'selected' : '']">
             <div class="field">
               {{ field.value }}
             </div>
@@ -41,18 +41,25 @@
       <button type="button" class="btn btn-dark" (click)="instructions()">
         <fa name="list" class="icon"></fa> Instrucciones
       </button>
+      <button type="button" class="btn btn-dark" (click)="options()">
+        <fa name="cog" class="icon"></fa> Opciones
+      </button>
     </div>
   </div>
 </div>
 
 <button hidden id="alertBtn" [swal]="finishSwal">
 </button>
-<swal #finishSwal title="Felicidades!" text="Terminaste el juego en {{ moves }} movimientos" type="info" (confirm)="initGame()">
+<swal #finishSwal title="Felicidades!" 
+  html="Terminaste el juego en {{ moves }} movimientos <br/><br/>
+    <label style='font-size: 12px;'>Solución óptima: {{ minMoves }} movimientos</label>"
+  type="info" 
+  (confirm)="initGame()">
 </swal>
 
 <button hidden id="instBtn" [swal]="instSwal">
 </button>
-<swal #instSwal title="Instrucciones del juego" type="info" html=""
+<swal #instSwal title="Instrucciones del juego" type="info"
   html=" <br/> El juego comienza con todos los discos insertados en una de las barras,
 ordenados de mayor a menor situando el disco menor sobre todos los demás. <br/> <br/>
 El objetivo del juego consiste en lograr crear la misma torre en una barra distinta siguiendo las siguientes reglas: <br/>  <br/>
@@ -62,4 +69,29 @@ El objetivo del juego consiste en lograr crear la misma torre en una barra disti
   <li>Para mover un disco se debe hacer click en la torre, y se seleccionará el que esté arriba</li>
   <li>Para dejar caer el disco se vuelve a hacer click en otra torre</li>
 </ul>">
+</swal>
+
+<!-- Options -->
+<button hidden id="optionsBtn" [swal]="optionsSwal">
+</button>
+<swal #optionsSwal title="Opciones del juego" (confirm)="optionsConfirm()" 
+showCancelButton="true" reverseButtons="true" cancelButtonText="Cancelar" confirmButtonText="Aceptar">
+  <div *swalPartial>
+    <br>
+    <h5>Seleccione la cantidad de discos</h5>
+    <div class='form-check form-check-inline'>
+      <input class='form-check-input' type='radio' name='diskNumberOptions' id='fourDisksRadio' value='4' [(ngModel)]="disksTemp">
+      <label class='form-check-label' for='fourDisksRadio'>4 discos</label>
+    </div>
+    <div class='form-check form-check-inline'>
+      <input class='form-check-input' type='radio' name='diskNumberOptions' id='fiveDisksRadio' value='5' [(ngModel)]="disksTemp">
+      <label class='form-check-label' for='fiveDisksRadio'>5 discos</label>
+    </div>
+    <div class='form-check form-check-inline'>
+      <input class='form-check-input' type='radio' name='diskNumberOptions' id='sixDisksRadio' value='6' [(ngModel)]="disksTemp">
+      <label class='form-check-label' for='sixDisksRadio'>6 discos</label>
+    </div>
+    <br/>
+    <br/>
+  </div>
 </swal>
