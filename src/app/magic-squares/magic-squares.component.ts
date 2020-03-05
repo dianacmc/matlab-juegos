@@ -18,7 +18,31 @@ export class MagicSquaresComponent implements OnInit {
   private squareTemp: Array<Array<any>>;
 
   ngOnInit() {
-    this.initGame();
+    this.initGameInitial(0);
+  }
+
+  //initialize the next square
+  startNextSquare() {
+    this.incrementNumberGame();
+    this.initGameInitial(0);
+  }
+
+  //initialize game for the first time
+  initGameInitial(option: number) {
+    if(option == 1) {
+      this.incrementNumberGame();
+    }
+    this.initSquare();
+    let lineToComplete: number;
+
+    if (this.squareOrder == 3) {
+      lineToComplete = this.getRandomNumber(1, 8);
+      this.initSquareTempOrder3(lineToComplete); 
+    } else {
+      lineToComplete = this.getRandomNumber(1, 10);
+      this.initSquareTempOrder4(lineToComplete);
+    }
+    this.completeLine = lineToComplete;
   }
 
   //get a square by id from json file
@@ -57,21 +81,6 @@ export class MagicSquaresComponent implements OnInit {
     }
   }
   
-  //initialize the game
-  initGame() {
-    this.initSquare();
-    let lineToComplete: number;
-
-    if (this.squareOrder == 3) {
-      lineToComplete = this.getRandomNumber(1, 8);
-      this.initSquareTempOrder3(lineToComplete); 
-    } else {
-      lineToComplete = this.getRandomNumber(1, 10);
-      this.initSquareTempOrder4(lineToComplete);
-    }
-    this.completeLine = lineToComplete;
-    this.incrementNumberGame();
-  }
 
   //initialize the square with all the numbers
   private initSquare() {
@@ -310,7 +319,7 @@ export class MagicSquaresComponent implements OnInit {
       }
     }
 
-    if(this.numberGameOrder3 >= 11 || this.numberGameOrder4 >= 11) {
+    if(this.numberGameOrder3 >= 10 || this.numberGameOrder4 >= 10) {
       this.gameWon();
     } else {
       this.confirmSquareSolved();
@@ -342,7 +351,13 @@ export class MagicSquaresComponent implements OnInit {
 
   optionsConfirm() {
     this.squareOrder = +this.squareOrderTemp;
-    this.initGame();
+    this.initSquare();
+
+    if (this.squareOrder == 3) {
+      this.initSquareTempOrder3(this.completeLine); 
+    } else {
+      this.initSquareTempOrder4(this.completeLine);
+    }
   }
   
   confirmSquareSolved() {
