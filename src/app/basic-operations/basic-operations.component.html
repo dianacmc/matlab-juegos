@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 basic-operations">
+      <h3> 0 Aciertos</h3>
+    </div>
+  </div>
+
+  <div class="basic-operations">
+    <div *ngFor="let option of options" style="display: inline;">
+      <button type="button" [ngClass]="['btn', 'options', option.name]">
+        <h4>{{ option.value }}</h4>
+      </button>
+    </div>
+  </div>
+
+  <div class="operation">
+     <h4>{{ number1 }} {{ operator }} {{ number2 }}</h4>
+  </div>
+
+  <div class="row restart">
+    <button type="button" class="btn btn-dark" (click)="restart()">
+      <fa name="repeat" class="icon"></fa> Reiniciar
+    </button>
+    <button type="button" class="btn btn-dark" (click)="instructions()">
+      <fa name="list" class="icon"></fa> Instrucciones
+    </button>
+  </div>
+
+  <!-- instructions -->
+  <button hidden id="instructionsButton" [swal]="instructionsSwal">
+  </button>
+  <swal #instructionsSwal title="Instrucciones del juego" type="info">
+    <div *swalPartial>
+        <p>El juego inicia con un cuadrado mágico incompleto y dispone de una línea completa para encontrar la constante mágica.
+          El objetivo del juego es encontrar todos los números faltantes en el cuadrado de manera que al sumar cualquier línea
+          (horizontal, vertical o diagonal) el resultado de la suma debe ser el mismo.
+        </p>
+        <ul>
+          <li>Rellenar los espacios en 0 con los números faltantes 
+            (debes tener cuidado porque el cero también puede ser uno de nuestros números faltantes).</li>
+          <li>Cuando creas que el cuadrado está correcto debes verificar tu respuesta.</li>
+          <li>Si tu respuesta es correcta puedes continuar con un cuadrado nuevo.</li>
+          <li>Si tu respuesta es incorrecta debes revisar tus sumas para encontrar el error y seguir avanzando en el juego.</li>
+          <li>Recuerda que puedes jugar con cuadrados de orden 3X3 o de orden 4X4.</li>
+          <li>El juego termina cuando hayas encontrado 10 cuadrados correctos.</li>
+        </ul>
+    </div>
+  </swal>
+
+</div>

@@ -5,6 +5,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { HanoitTowerComponent } from './hanoit-tower/hanoit-tower.component'
 import { SenkuComponent } from './senku/senku.component';
 import { MagicSquaresComponent } from './magic-squares/magic-squares.component';
+import { BasicOperationsComponent } from './basic-operations/basic-operations.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'magic-squares',
     component: MagicSquaresComponent
+  },
+  {
+    path: 'basic-operations',
+    component: BasicOperationsComponent
   },
   {
     path: '**',
