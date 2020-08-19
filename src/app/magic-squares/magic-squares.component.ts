@@ -80,7 +80,6 @@ export class MagicSquaresComponent implements OnInit {
       square.push(new Array(squareArray.shift(), squareArray.shift(), squareArray.shift(), squareArray.shift()));
     }
   }
-  
 
   //initialize the square with all the numbers
   private initSquare() {
