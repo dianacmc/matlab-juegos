@@ -14,6 +14,7 @@ import { HanoitTowerComponent } from './hanoit-tower/hanoit-tower.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { SenkuComponent } from './senku/senku.component';
 import { MagicSquaresComponent } from './magic-squares/magic-squares.component';
+import { BasicOperationsComponent } from './basic-operations/basic-operations.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MagicSquaresComponent } from './magic-squares/magic-squares.component';
     AboutUsComponent,
     HanoitTowerComponent,
     SenkuComponent,
-    MagicSquaresComponent
+    MagicSquaresComponent,
+    BasicOperationsComponent
   ],
   imports: [
     BrowserModule,

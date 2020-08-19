@@ -1,0 +1,104 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 basic-operations">
+      <h4 class="subtitle-left"> {{ success }} Aciertos</h4>
+      <h4 class="subtitle-right"> {{ fails }} Fallos</h4>
+    </div>
+  </div>
+
+  <div class="options">
+    <div *ngFor="let option of options" style="display: inline;">
+      <button type="button" [ngClass]="['btn', 'option', option.name]" (click)="verify(option.value)">
+        <h4>{{ option.value }}</h4>
+      </button>
+    </div>
+  </div>
+
+  <div class="operation">
+     <h4>{{ number1 }} {{ operator }} {{ number2 }}</h4>
+  </div>
+
+  <div class="row restart">
+    <button type="button" class="btn btn-dark" (click)="restart()">
+      <fa name="repeat" class="icon"></fa> Reiniciar
+    </button>
+    <button type="button" class="btn btn-dark" (click)="instructions()">
+      <fa name="list" class="icon"></fa> Instrucciones
+    </button>
+    <button type="button" class="btn btn-dark" (click)="difficultyGame()">
+      <fa name="cog" class="icon"></fa> Dificultad
+    </button>
+  </div>
+
+  <!-- instructions -->
+  <button hidden id="instructionsButton" [swal]="instructionsSwal">
+  </button>
+  <swal #instructionsSwal title="Instrucciones del juego" type="info">
+    <div *swalPartial>
+        <p>El juego consiste en acertar la respuesta correcta de las operaciones básicas que se presentan en pantalla.
+          El objetivo del juego es poder practicar estas operaciones y consta de tres dificultades, Principiante,
+          Intermedio y Avanzado, que puedes ir cambiando por ti mismo cuando te sientas preparado.
+        </p>
+        <ul>
+          <li>Selecciona la respuesta que creas correcta de las cuatro posibles respuestas que se presentan en la parte superior.</li>
+          <li>Puedes presionar el botón de seguir jugando y jugar todo lo que quieras.</li>
+          <li>Recuerda que puedes cambiar la dificultad cuando te sientas preparado.</li>
+          <li>Recuerda que cuando sumas dos números negativos, el resultado debe ser negativo. 
+            Por ejemplo, si sumas (-5) + (-6) tu resultado será -11.
+          </li>
+          <li>No olvides que cuando sumas un número negativo con un número positivo, el signo del resultado es el del número mayor en valor absoluto.
+            Por ejemplo si sumas (-7) + 4 tendrás como resultado -3.
+          </li>
+          <li>Ten en cuenta que al multiplicar o dividir un número negativo con otro negativo, el resultado siempre será positivo.
+            Por ejemplo (-8) ÷ (-4) da como resultado 2, así como (-8) X (-4) da como resultado 32.
+          </li>
+          <li>Es importante que recuerdes que si multiplicas o divides un número negativo con uno positivo o viceversa, tu resultado será negativo.
+            Por ejemplo, el resultado de 4 ÷ (-2) es -2 y el resultado de 4 X (-2) es igual -8.
+          </li>
+        </ul>
+    </div>
+  </swal>
+
+  <!-- correct answer -->
+  <button hidden id="correctButton" [swal]="correctSwal">
+	</button>
+  <swal #correctSwal title="Correcto!" type="success" (confirm)="initGame(1)" confirmButtonText="Seguir jugando">
+		<div *swalPartial>
+			¡Felicidades, acertaste!
+		</div>
+  </swal>
+
+  <!-- square incorrect --> 
+  <button hidden id="incorrectButton" [swal]="incorrectSwal">
+	</button>
+  <swal #incorrectSwal title="Incorrecto!" type="info" (confirm)="initGame(2)" confirmButtonText="Seguir jugando">
+		<div *swalPartial>
+			¡Ups, la respuesta no es correcta!
+		</div>
+	</swal>
+
+  <button hidden id="difficultyBtn" [swal]="difficultySwal">
+  </button>
+  <swal #difficultySwal title="Dificultad del juego" (confirm)="difficultyConfirm()" 
+  showCancelButton="true" reverseButtons="true" cancelButtonText="Cancelar" confirmButtonText="Aceptar">
+    <div *swalPartial>
+      <br>
+      <h5>Seleccione la dificultad del juego</h5>
+      <br>
+      <div class='form-check form-check-inline'>
+        <input class='form-check-input' type='radio' name='difficulty' id='oneDifficultyRadio' value='1' [(ngModel)]="difficultyTemp">
+        <label class='form-check-label' for='oneDifficultyRadio'>Principiante</label>
+      </div>
+      <div class='form-check form-check-inline'>
+        <input class='form-check-input' type='radio' name='difficulty' id='twoDifficultyRadio' value='2' [(ngModel)]="difficultyTemp">
+        <label class='form-check-label' for='twoDifficultyRadio'>Intermedio</label>
+      </div>
+      <div class='form-check form-check-inline'>
+        <input class='form-check-input' type='radio' name='difficulty' id='threeDifficultyRadio' value='3' [(ngModel)]="difficultyTemp">
+        <label class='form-check-label' for='threeDifficultyRadio'>Avanzado</label>
+      </div>
+      <br/>
+      <br/>
+    </div>
+  </swal>
+</div>
